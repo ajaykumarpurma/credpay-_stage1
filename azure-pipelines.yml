@@ -26,6 +26,27 @@ stages:
               tags: |
                 $(tag)
                 latest
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'acr-connection'
+              repository: '$(userrepository)'
+              command: 'buildAndPush'
+              Dockerfile: 'userrepository/dockerfile'
+              buildContext: 'frontend-react'
+              tags: |
+                $(tag)
+                latest
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'acr-connection'
+              repository: 'acr-connection'
+              command: 'buildAndPush'
+              Dockerfile: 'paymentrepository/dockerfile'
+              buildContext: 'frontend-react'
+              tags: |
+                $(tag)
+                latest
+
     
 
 
