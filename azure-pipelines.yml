@@ -33,7 +33,7 @@ stages:
               containerRegistry: 'acr-connection'
               repository: '$(userrepository)'
               command: 'buildAndPush'
-              Dockerfile: 'userrepository/dockerfile'
+              Dockerfile: 'user-service/dockerfile'
               buildContext: 'user-service'
               tags: |
                 $(tag)
@@ -42,9 +42,9 @@ stages:
             displayName: payment
             inputs:
               containerRegistry: 'acr-connection'
-              repository: 'acr-connection'
+              repository: '$(paymentrepository)'
               command: 'buildAndPush'
-              Dockerfile: 'paymentrepository/dockerfile'
+              Dockerfile: 'payment-service/dockerfile'
               buildContext: 'payment-service'
               tags: |
                 $(tag)
