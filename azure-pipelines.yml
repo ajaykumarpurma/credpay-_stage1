@@ -17,6 +17,7 @@ stages:
         steps:
           - checkout: self
           - task: Docker@2
+            displayName: frontend
             inputs:
               containerRegistry: 'acr-connection'
               repository: '$(frontendrepository)'
@@ -27,22 +28,24 @@ stages:
                 $(tag)
                 latest
           - task: Docker@2
+            displayName: userrepo
             inputs:
               containerRegistry: 'acr-connection'
               repository: '$(userrepository)'
               command: 'buildAndPush'
               Dockerfile: 'userrepository/dockerfile'
-              buildContext: 'frontend-react'
+              buildContext: 'user-service'
               tags: |
                 $(tag)
                 latest
           - task: Docker@2
+            displayName: payment
             inputs:
               containerRegistry: 'acr-connection'
               repository: 'acr-connection'
               command: 'buildAndPush'
               Dockerfile: 'paymentrepository/dockerfile'
-              buildContext: 'frontend-react'
+              buildContext: 'payment-service'
               tags: |
                 $(tag)
                 latest
