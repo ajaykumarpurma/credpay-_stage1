@@ -29,6 +29,7 @@ stages:
               workingDirectory: terraform
               inlineScript:  |
                 terraform init
+                terraform plan
 
           
           
