@@ -29,7 +29,7 @@ stages:
               workingDirectory: terraform
               inlineScript:  |
                 terraform init
-                terraform plan
+                terraform plan -var-file=terraform.tfvars
 
           
           
