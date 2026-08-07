@@ -26,7 +26,7 @@ stages:
               azureSubscription: 'hdfc-manual'
               scriptType: 'bash'
               scriptLocation: 'inlineScript'
-              workingDirectory: 
+              workingDirectory: terraform
               inlineScript:  |
                 terraform init
 
