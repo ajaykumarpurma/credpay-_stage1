@@ -26,11 +26,11 @@ stages:
               command: 'init'
               workingDirectory: Terraform
               backendServiceArm: 'AV1929-manul'
-              backendAzureRmOverrideSubscriptionID: 'ef5a7f40-46e6-4cad-8034-07f05098d851'
               backendAzureRmResourceGroupName: 'capstone-RG'
               backendAzureRmStorageAccountName: 'credpayproject34'
               backendAzureRmContainerName: 'statefile'
               backendAzureRmKey: 'credpay.terraform.tfstate'
+              
           
           
       
