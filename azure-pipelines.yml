@@ -19,17 +19,14 @@ stages:
           - checkout: self
           - task: TerraformInstaller@1
             inputs:
-              terraformVersion: '>= 1.6.0'
-          - task: TerraformTask@5
+              terraformVersion: 'latest'
+          - task: AzureCLI@3
             inputs:
-              provider: 'azurerm'
-              command: 'init'
-              workingDirectory: Terraform
-              backendServiceArm: 'hdfc-manual'
-              backendAzureRmResourceGroupName: 'capstone-RG'
-              backendAzureRmStorageAccountName: 'credpayproject34'
-              backendAzureRmContainerName: 'statefile'
-              backendAzureRmKey: 'credpay.terraform.tfstate'
+              connectionType: 'azureRM'
+              azureSubscription: 'hdfc-manual'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: 'terraform init \ -backend-config="storage_account_name=credpayproject34" \ -backend-config="container_name=statefile" \ -backend-config="key=credpay.terraform.tfstate" \ -backend-config="resource_group_name=capstone-RG"'
 
           
           
