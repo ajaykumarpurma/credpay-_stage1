@@ -25,12 +25,12 @@ stages:
               provider: 'azurerm'
               command: 'init'
               workingDirectory: Terraform
-              backendServiceArm: 'AV1929-manul'
+              backendServiceArm: 'hdfc-manual'
               backendAzureRmResourceGroupName: 'capstone-RG'
               backendAzureRmStorageAccountName: 'credpayproject34'
               backendAzureRmContainerName: 'statefile'
               backendAzureRmKey: 'credpay.terraform.tfstate'
-              
+
           
           
       
