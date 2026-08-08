@@ -8,7 +8,7 @@ locals {
 module "resource_group" {
   source              = "./modules/resourcegroup"
   name                = "rg-${local.name_prefix}"
-  location            = "var.location"
+  location            = var.location
   tags                = local.tags
 }
 module "networking" {
