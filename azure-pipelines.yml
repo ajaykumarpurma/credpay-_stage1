@@ -1,6 +1,4 @@
 
-
-
 pool:
   vmImage: ubuntu-latest
 variables:
@@ -30,7 +28,8 @@ stages:
               inlineScript:  |
                 terraform init
                 # terraform plan -var-file=terraform.tfvars
-                terraform apply -auto-approve
+                # terraform apply -auto-approve
+                terraform destory -auto-approve
 
           
           
