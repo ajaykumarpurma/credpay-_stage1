@@ -19,7 +19,11 @@ resource "azurerm_postgresql_flexible_server" "pgs" {
     sku_name                     = "B_Standard_B2s"
     storage_mb                   = 32768
     backup_retention_days        = 7
-    tags                        = var.tags  
+    tags                        = var.tags 
+    lifecycle {
+        ignore_changes = [zone]
+        
+    } 
 }
 resource "azurerm_postgresql_flexible_server_database" "pgdb" {
     name                = var.database_name
